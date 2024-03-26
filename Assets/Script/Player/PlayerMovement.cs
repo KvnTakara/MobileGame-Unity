@@ -8,8 +8,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(Input.GetAxis("Horizontal"));
-
         if (Input.GetAxis("Horizontal") < 0)
         {
             MoveLeft();
