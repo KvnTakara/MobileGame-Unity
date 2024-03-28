@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class PlayerGun : MonoBehaviour
 {
-    public GameObject bullet;
+    GameObject bullet;
 
     void Start()
     {
+        bullet = Resources.Load<GameObject>("Prefabs/Bullet");
+
         StartCoroutine(Shoot(LevelManager.instance.bulletSpawnTimer));
     }
 
     IEnumerator Shoot(float time)
     {
-        GameObject bulletInstance = Instantiate(bullet, transform.position, Quaternion.Euler(new Vector3(90,0,0)));
+        float instancePositionX = transform.position.x + Random.Range(-0.1f, 0.1f);
+        float instancePositionY = transform.position.y + Random.Range(-0.1f, 0.1f);
+        Vector3 instancePosition = new Vector3(instancePositionX, instancePositionY, transform.position.z);
+
+        GameObject bulletInstance = Instantiate(bullet, instancePosition, Quaternion.Euler(new Vector3(90,0,0)));
 
         yield return new WaitForSeconds(time);
         StartCoroutine(Shoot(LevelManager.instance.bulletSpawnTimer));

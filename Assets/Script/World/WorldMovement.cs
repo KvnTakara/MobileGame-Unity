@@ -6,6 +6,11 @@ public class WorldMovement : MonoBehaviour
 {
     void Update()
     {
-        transform.Translate(Vector3.back * LevelManager.instance.levelSpeed * Time.deltaTime);
+        Move();
+    }
+
+    public void Move()
+    {
+        transform.Translate(Vector3.back * LevelManager.instance.worldSpeed * Time.deltaTime);
     }
 }

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class BulletMovement : MonoBehaviour
 {
-    
-
     void Update()
     {
         transform.Translate(Vector3.up * LevelManager.instance.bulletSpeed * Time.deltaTime);
@@ -16,7 +14,7 @@ public class BulletMovement : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider collider)
+    private void OnTriggerExit(Collider collider)
     {
         if (collider.CompareTag("Enemy"))
         {
