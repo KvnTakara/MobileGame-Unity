@@ -25,7 +25,7 @@ public class LevelManager : MonoBehaviour
     {
         worldSpeed = 3f;
         entityHP = 20f;
-        levelSpawnTimer = 10f;
+        levelSpawnTimer = 5f;
 
         bulletDamage = 1;
         bulletSpawnTimer = 0.3f;
